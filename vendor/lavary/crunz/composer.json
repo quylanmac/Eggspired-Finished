@@ -1,0 +1,83 @@
+{
+    "name": "lavary/crunz",
+    "description": "Schedule your tasks right from the code.",
+    "type": "library",
+    "keywords": [
+        "scheduler",
+        "cron jobs",
+        "cron",
+        "Task Scheduler",
+        "PHP Task Scheduler",
+        "Job Scheduler",
+        "Job Manager",
+        "Event Runner"
+    ],
+    "homepage": "https://github.com/lavary/crunz",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Reza M. Lavaryan",
+            "email": "mrl.8081@gmail.com"
+        }
+    ],
+    "support": {
+        "email": "mrl.8081@gmail.com",
+        "issues": "http://github.com/lavary/crunz/issues"
+    },
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "jeremeamia/superclosure": "^2.2",
+        "monolog/monolog": "^1.19",
+        "mtdowling/cron-expression": "^1.1",
+        "nikic/php-parser": "^2.1.1 || ^3.0 || ^4.0",
+        "swiftmailer/swiftmailer": "^5.4 || ^6.0",
+        "symfony/config": "^2.7 || ^3.3 || ^4.0",
+        "symfony/console": "^2.7 || ^3.3 || ^4.0",
+        "symfony/dependency-injection": "^2.7 || ^3.3 || ^4.0",
+        "symfony/filesystem": "^2.7 || ^3.3 || ^4.0",
+        "symfony/lock": "^3.4 || ^4.0",
+        "symfony/process": "^2.7.11 || ^3.3 || ^4.0",
+        "symfony/yaml": "^2.7 || ^3.3 || ^4.0"
+    },
+    "require-dev": {
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "bamarni/composer-bin-plugin": "^1.2",
+        "symfony/var-dumper": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Crunz\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Crunz\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "crunz"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "crunz:cs-fix": "@php vendor/bin/php-cs-fixer fix --diff -v --ansi",
+        "crunz:analyze": [
+            "@php vendor/bin/php-cs-fixer fix --diff --dry-run -v",
+            "@phpstan:check"
+        ],
+        "crunz:link-changelog": "@php vendor/bin/changelog-linker dump-merges --dry-run --in-categories",
+        "crunz:link-changelog:since": "@php vendor/bin/changelog-linker dump-merges --dry-run --in-categories --since-id",
+        "phpstan:check": "@php vendor/bin/phpstan analyse -c phpstan.neon -l 7 src tests crunz config bootstrap.php .php_cs.dist"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev",
+            "dev-1.12.x": "1.12.x-dev",
+            "dev-1.11.x": "1.11.x-dev"
+        }
+    }
+}

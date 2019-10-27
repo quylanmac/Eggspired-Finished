@@ -1,0 +1,6 @@
+{
+    "require": {
+        "twilio/sdk": "^5.37",
+        "lavary/crunz": "^1.12"
+    }
+}

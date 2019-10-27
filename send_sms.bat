@@ -1,0 +1,1 @@
+C:\xampp\php\php.exe C:\xampp\htdocs\eggspired\send_sms.php
